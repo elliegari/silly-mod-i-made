@@ -796,11 +796,12 @@ elements.channel_pipe = {
 						pixel.con = null;
 						break;
 					}
-					if (!isEmpty(x,y,true) && elements[pixelMap[x][y].element].canContain && elements[pixelMap[x][y].element] != "channel_pipe") {
+					if (!isEmpty(x,y,true) && elements[pixelMap[x][y].element].canContain) {
 						var newPixel = pixelMap[x][y];
 						if (newPixel.filter) {
 							if (newPixel.filter !== pixel.con.element && !newPixel.filter.split(",").includes(pixel.con.element)) continue
 						}
+                        if (newPixel.element == "channel_pipe" && newPixel.channel !== pixel.channel){continue;} 
 						if (pixel.con && !newPixel.con && (pixelMap[x][y].element !== "channel_pipe" || newPixel.stage === pixel.stage)) {
 							newPixel.con = pixel.con;
 							newPixel.con.x = newPixel.x;
