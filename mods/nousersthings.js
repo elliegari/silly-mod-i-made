@@ -435,7 +435,10 @@ elements.destroyable_pipe = {
 	tempHigh: 1538,
 	stateHigh: "molten_iron",
 	breakInto: "metal_scrap", 
-},
+}
+saveElementMigrations.bridge_pipe = function(pixel){
+    pixel.element = "pipe"
+}
 elements.e_pipe = {
     color: "#414c4f",
     onSelect: function() {
